@@ -1,0 +1,74 @@
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f1e0;
+}
+
+.link-home {
+  text-decoration: none;
+  font-weight: 500;
+  color: rgb(11, 8, 161);
+}
+
+.link-home:hover {
+  color: rgba(20, 19, 24, 0.667);
+}
+
+.titulo {
+  background-color: #d86e0b !important;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.7em;
+  padding: 0.5em;
+  width: 100vw;
+  color: #fafafa;
+}
+
+.link-footer {
+  display: grid;
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  padding: 0.2em;
+  cursor: pointer;
+}
+
+.container {
+  display: inline-flexbox;
+  align-items: center;
+}
+
+.link-footer:hover {
+  color: rgb(18, 18, 19);
+}
+
+.link-footer:nth-child(1) {
+  padding-top: 2em;
+}
+
+.texto-footer {
+  padding-top: 1em;
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.8em !important;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.team-work {
+  max-width: 390px;
+}
+
+p {
+  font-weight: 700;
+}
