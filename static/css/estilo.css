@@ -72,3 +72,18 @@ main {
 p {
   font-weight: 700;
 }
+
+/*Termos de Serviço & Politica de Privacidade*/
+
+.titulo-termos {
+  margin-bottom: 0.7em;
+}
+
+.texto-termos {
+  margin: auto;
+  padding: 2% 10%;
+}
+
+.texto-termos p {
+  font-weight: normal;
+}

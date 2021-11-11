@@ -12,6 +12,7 @@ app = Flask(__name__, template_folder='templates')
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///connectmei.db"
 
 
+
 db = SQLAlchemy(app)
 
 
@@ -91,6 +92,16 @@ db.create_all()
 @app.route("/index")
 def index():
     return render_template("index.html")
+
+
+
+@app.route("/politica")
+def politica():
+    return render_template("politicaPrivacidade.html") 
+
+@app.route("/termos")
+def termos():
+    return render_template("termosServico.html") 
 
 
 

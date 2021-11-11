@@ -19,7 +19,7 @@
             <a class="navbar-brand" href="#">
               <img
                 class="mt-0"
-                src="../img/logo.png"
+                src="{{ url_for('static', filename ='img/logo.png')}}"
                 alt="logo ConnectMEI"
                 width="110"
                 height="60"
@@ -30,10 +30,9 @@
                 Página Inicial
               </button></a
             >
-          </div>
-          <hr />
-        <div class="container">
-   
+        </div>
+        <hr />
+        <div class="container">   
             <form action="{{ url_for('cadastropf') }}" method='POST'>
                 <div class="form-group">
                     <label for="nomepf">Nome</label>
@@ -125,6 +124,23 @@
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
             </form>
+           </div>
+            <footer class="bg-secondary pb-3">
+                <div class="footer-links">
+                <a class="link-footer mt-3" href="#">Política de privacidade</a>
+                <a class="link-footer" href="#">Termos de uso do site</a>
+                <a class="link-footer" href="#"
+                    >LGPD - Lei Geral de Proteção de Dados</a
+                >
+                </div>
+                <div class="texto-footer">
+                <p>
+                    Desenvolvido no Projeto Integrador pelo grupo 5 do polo Formosa |
+                    UNIVESP
+                </p>
+                <p>&COPY; 2021 Connect MEI</p>
+                </div>
+            </footer>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
         </div>

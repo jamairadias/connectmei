@@ -16,38 +16,38 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
-        <div class="container">
+      <nav class="navbar navbar-light bg-light" style="padding-left: 120px">
+        <div class="container-flex mt-2" style="display: nowrap">
           <div class="row">
-            <div class="col-2">
+            <div class="col-3">
               <a class="link-home" href="{{ url_for('cadastrarpf')}}"
                 >Cadastro Pessoa Fí­sica</a
               >
             </div>
-            <div class="col-2">
+            <div class="col-3">
               <a class="link-home" href="{{ url_for('listapf')}}"
                 >Lista Pessoas Físicas</a
               >
             </div>
-            <div class="col-2">
+            <div class="col-3">
               <a class="link-home" href="{{ url_for('cadastrarpj')}}"
                 >Cadastro Pessoa Jurídica - MEI</a
               >
             </div>
-            <div class="col-2">
+            <div class="col-3">
               <a class="link-home" href="{{ url_for('listapj')}}"
                 >Lista Pessoas Jurídicas - MEI</a
               >
             </div>
-            <div class="col-2">
+            <div class="col-3">
               <a class="link-home" href="{{ url_for('consultapj')}}"
-                >Consulta de Profissionais - MEI</a
+                >Consulta Profissionais - MEI</a
               >
             </div>
-            <!-- <div class="col-1">
+            <div class="col-1">
               <a href="#" class=""
                 ><img
-                  src="../img/logo-instagram.png"
+                  src="{{ url_for('static', filename ='img/logo-instagram.png')}}"
                   style="width: 40px"
                   alt="Instagram"
               /></a>
@@ -55,11 +55,11 @@
             <div class="col-1">
               <a href="#" class=""
                 ><img
-                  src="../img/facebook-logo.png"
+                  src="{{ url_for('static', filename ='img/facebook-logo.png')}}"
                   style="width: 40px"
                   alt="Facebook"
               /></a>
-            </div> -->
+            </div>
           </div>
         </div>
       </nav>
@@ -70,7 +70,7 @@
         <a class="navbar-brand" href="{{ url_for('index')}}">
           <img
             class="mt-0"
-            src="../img/logo.png"
+            src="{{ url_for('static', filename ='img/logo.png')}}"
             alt="logo ConnectMEI"
             width="110"
             height="60"
@@ -89,16 +89,23 @@
         </ul>
         <img
           class="team-work"
-          src="../img/team-work.jpg"
+          src="{{ url_for('static', filename ='img/team-work.jpg')}}"
           alt="Ilustração de pessoas se trabalhando com dados"
         />
       </div>
     </main>
     <footer class="bg-secondary pb-3">
       <div class="footer-links">
-        <a class="link-footer mt-3" href="#">Política de privacidade</a>
-        <a class="link-footer" href="#">Termos de uso do site</a>
-        <a class="link-footer" href="#"
+        <a class="link-footer mt-3" href="{{ url_for('politica')}}"
+          >Política de privacidade</a
+        >
+        <a class="link-footer" href="{{ url_for('termos')}}"
+          >Termos de serviço do site</a
+        >
+        <a
+          class="link-footer"
+          href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+          target="_blank"
           >LGPD - Lei Geral de Proteção de Dados</a
         >
       </div>

@@ -23,7 +23,7 @@
       <a class="navbar-brand" href="#">
         <img
           class="mt-0"
-          src="../img/logo.png"
+          src="{{ url_for('static', filename ='img/logo.png')}}"
           alt="logo ConnectMEI"
           width="110"
           height="60"
@@ -72,7 +72,7 @@
           <td>
             <a href="/editpj/{{ pessoajuridica.idpj }}">Editar</a>|
             <a href="/deletepj/{{ pessoajuridica.idpj }}">Excluir</a>
-        </td>
+          </td>
         </tr>
         {% endfor %}
       </table>

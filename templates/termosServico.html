@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/css/estilo.css" />
+    <title>Termos de Uso</title>
+  </head>
+  <body>
+    <div class="paragrafo-home-topo">
+      <h1 class="titulo" style="width: 100%">
+        Termos de Serviço do Connect MEI
+      </h1>
+      <a class="navbar-brand" href="#">
+        <img
+          class="mt-0"
+          src="{{ url_for('static', filename ='img/logo.png')}}"
+          alt="logo ConnectMEI"
+          width="110"
+          height="60"
+        />
+      </a>
+      <a href="{{ url_for('index')}}"
+        ><button type="button" class="btn btn-secondary btn-sm">
+          Voltar
+        </button></a
+      >
+    </div>
+    <hr />
+    <div class="texto-termos">
+      <h1 class="titulo-termos">Termos de Serviço</h1>
+      <div class="">
+        <p>
+          Temos o prazer de oferecer o serviço Connect MEI disponibilizado na
+          internet de acordo com os termos e condições a seguir. Para utilizar o
+          serviço gratuito basta criar uma conta no site e concordar com este
+          termo. Se você representa uma organização, você declara e garante que
+          está autorizado a concordar com este termo em nome de sua organização.
+          Se você não concorda com este termo, não use os Serviços.
+        </p>
+        <span class="fw-bold">1. Serviço</span>
+        <p>
+          Você pode acessar e usar gratuitamente o serviço do sistema Connect
+          MEI, de acordo com este termo, deixando claro que entende e concorda
+          que podemos alterar, suspender ou descontinuar o serviço de forma
+          parcial ou no todo.
+        </p>
+        <span class="fw-bold"
+          >2. Registro e abertura de conta para acesso ao sistema
+        </span>
+        <p>
+          Para ter acesso ao sistema Connect MEI, seja para fazer parte do banco
+          de dados de prestadores de serviços na condição de MEI ou para
+          consultar a base de dados você deve preencher um cadastro para obter
+          autorização por meio de senha criada no processo de registro. Você
+          deve fornecer informações completas e precisas durante o processo de
+          registro e atualizará suas informações para garantir que permaneçam
+          precisas.
+        </p>
+        <span class="fw-bold">3. Vigência e rescisão</span>
+        <p>
+          O termo deste Acordo começa quando você cria uma conta e permanecerá
+          em vigor até ser rescindido de acordo com este termo. Você pode
+          rescindir este termo a qualquer tempo por qualquer motivo, sem aviso
+          prévio. Não temos nenhuma obrigação de continuar armazenando os dados
+          históricos de consultas realizadas, salvo as que estiverem previstas
+          em lei.
+        </p>
+        <span class="fw-bold"
+          >4. Direitos de propriedade intelectual e propriedade</span
+        >
+        <p>
+          Você declara e nos garante que: (a) você tem todos os direitos sobre
+          seus dados necessários para conceder os direitos contemplados por este
+          termo; e (b) nenhum de seus dados viola este termo, qualquer lei
+          aplicável ou qualquer propriedade intelectual de terceiros ou outro
+          direito. Este termo não transfere qualquer direito, título ou
+          interesse em qualquer propriedade intelectual para qualquer parte.
+          Você não é obrigado a nos fornecer quaisquer sugestões ou outros
+          comentários sobre os serviços, mas se o fizer, podemos usar em nossas
+          operações. Você se compromete a utilizar as informações obtidas em
+          consulta exclusivamente para manter contato característico entre
+          consumidor e prestador de serviços, desvinculando qualquer
+          responsabilidade sobre o que existir de relacionamento entre as
+          partes; seja pela contratação ou não do serviço ou do tratamento entre
+          eles.
+        </p>
+        <span class="fw-bold">5. Limitação de responsabilidade</span>
+        <p>
+          Nossa responsabilidade se limita a disponibilizar o sistema Connect
+          MEI aos interessados (prestadores de serviços na condição de MEI e os
+          possíveis consumidores que consultarem a base de dados), razão pela
+          qual não seremos responsáveis por quaisquer danos indiretos,
+          incidentais, especiais, consequenciais entre as partes que
+          formalizarem algum relacionamento negocial.
+        </p>
+        <span class="fw-bold">6. Indenização</span>
+        <p>
+          Você irá defender, indenizar e isentar de responsabilidade a nós, de e
+          contra quaisquer reivindicações, danos, perdas, responsabilidades,
+          custos e despesas decorrente de ou relacionada a qualquer reclamação
+          decorrente do uso do sistema Connect MEI, de acordo com este termo.
+        </p>
+
+        <span class="fw-bold">7. Geral</span>
+        <p>
+          Nós e você somos independentes, e nenhuma das partes, é um agente da
+          outra para qualquer finalidade ou tem autoridade para vincular a
+          outra. Este termo não cria quaisquer direitos de terceiros
+          beneficiários em qualquer indivíduo ou entidade que não seja parte
+          deste acordo. Não somos responsáveis por qualquer atraso ou falha no
+          cumprimento de qualquer obrigação entre as partes que se conectarem
+          por meio do sistema Connect MEI para a realização de alguma prestação
+          de serviços. Podemos alterar este termo a qualquer momento, publicando
+          uma versão revisada no site do sistema Connect MEI. Os termos de
+          serviço alterados tornam-se efetivos após a publicação no site.
+        </p>
+      </div>
+      <button class="btn btn-secondary">Não aceito</button>
+      <a href="{{ url_for('index')}}"<button class="btn btn-primary">Aceito</button></a>
+    </div>
+  </body>
+</html>
