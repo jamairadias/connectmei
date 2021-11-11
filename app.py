@@ -98,6 +98,7 @@ def index():
 @app.route("/politica")
 def politica():
     return render_template("politicaPrivacidade.html") 
+    
 
 @app.route("/termos")
 def termos():
