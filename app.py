@@ -192,7 +192,8 @@ def listapj():
 def consultapj():
     form = Form()
     form.profissao_nome.choices = [(profissao_nome.profissao_nome) for profissao_nome in PessoaJuridica.query.all()] 
-    return render_template("consultapj.html", form=form)
+    resultado = form.profissao_nome.choices
+    return render_template("consultapj.html", form=form, resultado=resultado)
   
     
 
