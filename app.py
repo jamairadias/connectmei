@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from sqlalchemy import create_engine
 from sqlalchemy.sql import select
 from wtforms import SelectField
 from flask_wtf import FlaskForm
@@ -13,7 +12,6 @@ app = Flask(__name__, template_folder='templates')
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///connectmei.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = "secret"
-engine = create_engine('sqlite:///:memory:', echo=True)
 
 
 db = SQLAlchemy(app)
@@ -81,13 +79,10 @@ class PessoaJuridica(db.Model):
         self.logradouropj = logradouropj
         self.numeropj = numeropj
         self.bairropj = bairropj
-        self.cidadepj = cidadepj 
+        self.cidadepj = cidadepj
         self.ufpj = ufpj
         self.ceppj = ceppj
         self.senhapj = senhapj
-
-    def __repr__(self):       
-        return "<PessoaJuridica(nomepj='%s', profissao_nome='%s', emailpj='%s', clelarpj='%s', logradouropj='%s', numeropj='%s', bairropj='%s', cidadepj='%s', ufpj='%s', ceppj='%s')>" % (self.nomepj, self.profissao_nome, self.emailpj, self.celularpj, self.logradouropj, self.numeropj, self.bairropj, self.cidadepj, self.ufpj, self.ceppj)
            
 db.create_all()
 
@@ -193,15 +188,13 @@ def listapj():
     
 
 
-
-@app.route("/consultapj/", methods=['GET'])
+@app.route("/consultapj", methods=['GET'])
 def consultapj():
     form = Form()
-    form.profissao_nome.choices = [(profissao_nome.idpj, profissao_nome.profissao_nome) for profissao_nome in PessoaJuridica.query.all()] 
-    print("nomepj", "emailpj", "celularpj", "logradouropj", "numeropj", "bairropj", "cidadepj", "ufpj", "ceppj" )
+    form.profissao_nome.choices = [(profissao_nome.profissao_nome) for profissao_nome in PessoaJuridica.query.all()] 
     return render_template("consultapj.html", form=form)
-
-
+  
+    
 
 @app.route('/deletepf/<int:idpf>')
 def deletepf(idpf):
@@ -209,7 +202,6 @@ def deletepf(idpf):
     db.session.delete(pessoafisica)
     db.session.commit()
     return redirect(url_for('index'))
-
 
 
 @app.route('/deletepj/<int:idpj>')
