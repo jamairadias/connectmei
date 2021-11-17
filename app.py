@@ -3,15 +3,16 @@ from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import select
+from sqlalchemy.sql import select, exists
 from wtforms import SelectField
 from flask_wtf import FlaskForm
+
 
 
 app = Flask(__name__, template_folder='templates')
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///connectmei.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SECRET_KEY"] = "secret"
+
 
 
 db = SQLAlchemy(app)
@@ -83,12 +84,9 @@ class PessoaJuridica(db.Model):
         self.ufpj = ufpj
         self.ceppj = ceppj
         self.senhapj = senhapj
-           
+
 db.create_all()
 
-
-class Form(FlaskForm):
-    profissao_nome = SelectField('pessoasjuridicas', choices=[])
 
 
 @app.route("/")
@@ -152,6 +150,7 @@ def listapf():
 @app.route("/cadastrarpj")
 def cadastrarpj():
     return render_template("cadastropj.html") 
+    
 
 
 
@@ -178,6 +177,7 @@ def cadastropj():
 
         return redirect(url_for("index"))
     return render_template('cadastropj.html')
+    
 
 
 
@@ -185,15 +185,13 @@ def cadastropj():
 def listapj():
     pessoasjuridicas = PessoaJuridica.query.all()
     return render_template("listapj.html", pessoasjuridicas=pessoasjuridicas)
-    
 
 
 @app.route("/consultapj", methods=['GET'])
 def consultapj():
-    form = Form()
-    form.profissao_nome.choices = [(profissao_nome.profissao_nome) for profissao_nome in PessoaJuridica.query.all()] 
-    resultado = form.profissao_nome.choices
-    return render_template("consultapj.html", form=form, resultado=resultado)
+    pessoasjuridicas = PessoaJuridica.query.order_by('profissao_nome')
+    return render_template("consultapj.html", pessoasjuridicas=pessoasjuridicas)
+    
   
     
 
@@ -205,12 +203,14 @@ def deletepf(idpf):
     return redirect(url_for('index'))
 
 
+
 @app.route('/deletepj/<int:idpj>')
 def deletepj(idpj):
     pessoajuridica = PessoaJuridica.query.get(idpj)
     db.session.delete(pessoajuridica)
     db.session.commit()
     return redirect(url_for('index'))
+
 
 
 @app.route('/editpf/<int:idpf>', methods=['GET', 'POST'])
@@ -229,13 +229,13 @@ def editpf(idpf):
         pessoafisica.ufpf = request.form("ufpf")
         pessoafisica.ceppf = request.form("ceppf")
         pessoafisica.senhapf = request.form("senhapf")
-        if pessoafisica.nomepf or pessoafisica.cpf or pessoafisica.sexopf or pessoafisica.emailpf or pessoafisica.celularpf or pessoafisica.logradouropf or pessoafisica.numeropf or pessoafisica.bairropf or pessoafisica.cidadepf or pessoafisica.ufpf or pessoafisica.ceppf or pessoafisica.senhapf:
-            db.session.add(pessoafisica)
-            db.session.commit()
+      
+        db.session.commit()
 
         return redirect(url_for("index"))
 
     return render_template('editpf.html', pessoafisica=pessoafisica)
+
 
 
 
@@ -255,13 +255,11 @@ def editpj(idpj):
         pessoajuridica.ufpj = request.form("ufpj")
         pessoajuridica.ceppj = request.form("ceppj")
         pessoajuridica.senhapj = request.form("senhapj")
-
-        if  pessoajuridica.nomepj or pessoajuridica.cnpj or pessoajuridica.profissao_nome or pessoajuridica.emailpj  or pessoajuridica.celularpj or pessoajuridica.logradouropj or pessoajuridica.numeropj or pessoajuridica.bairropj or pessoajuridica.cidadepj or pessoajuridica.ufpj or pessoajuridica.ceppj or pessoajuridica.senhapj:
-            db.session.add(pessoajuridica)
-            db.session.commit()
+        db.session.commit()
         return redirect(url_for('index'))
 
     return render_template('editpj.html', pessoajuridica=pessoajuridica)
+    
 
 
 
