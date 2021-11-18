@@ -6,6 +6,7 @@ main {
   text-decoration: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f7f1e0;
+  height: 65vh;
 }
 
 .link-home {
@@ -41,6 +42,9 @@ main {
 .container {
   display: inline-flexbox;
   align-items: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 .link-footer:hover {
@@ -59,10 +63,14 @@ main {
   font-size: 0.8em !important;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 50px;
+.paragrafo-home {
+  color: #14144d;
+  word-wrap: break-word;
+  font-size: 18px;
+}
+
+.lista {
+  font-weight: 500;
 }
 
 .team-work {
